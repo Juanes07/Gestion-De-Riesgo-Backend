@@ -4,33 +4,40 @@ import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import org.springframework.stereotype.Component;
 
+import java.util.function.Function;
+
 @Component
 public class MapperProyecto {
 
-    public Proyecto proyectoDtoAProyecto(ProyectoDTO proyectoDTO) {
-        var proyecto = new Proyecto();
-        proyecto.setId(proyectoDTO.getId());
-        proyecto.setNombre(proyectoDTO.getNombre());
-        proyecto.setFechaInicio(proyectoDTO.getFechaInicio());
-        proyecto.setFechaFin(proyectoDTO.getFechaFin());
-        proyecto.setEtiquetas(proyectoDTO.getEtiquetas());
-        proyecto.setResponsables(proyectoDTO.getResponsables());
-        proyecto.setDescripcion(proyectoDTO.getDescripcion());
-        proyecto.setLiderProyecto(proyectoDTO.getLiderProyecto());
-        return proyecto;
+    public Function<ProyectoDTO, Proyecto> proyectoDtoAProyecto(Object o) {
+        return proyectoDTO -> {
+            var proyecto = new Proyecto();
+            proyecto.setId(proyectoDTO.getId());
+            proyecto.setNombre(proyectoDTO.getNombre());
+            proyecto.setFechaInicio(proyectoDTO.getFechaInicio());
+            proyecto.setFechaFin(proyectoDTO.getFechaFin());
+            proyecto.setEtiquetas(proyectoDTO.getEtiquetas());
+            proyecto.setResponsables(proyectoDTO.getResponsables());
+            proyecto.setDescripcion(proyectoDTO.getDescripcion());
+            proyecto.setLiderProyecto(proyectoDTO.getLiderProyecto());
+            proyecto.setEstado(proyectoDTO.getEstado());
+            return proyecto;
+        };
     }
 
 
-    public  ProyectoDTO proyectoAProyectoDto(Proyecto proyecto) {
-        var proyectoDTO = new ProyectoDTO();
-        proyectoDTO.setId(proyecto.getId());
-        proyectoDTO.setNombre(proyecto.getNombre());
-        proyectoDTO.setFechaInicio(proyecto.getFechaInicio());
-        proyectoDTO.setFechaFin(proyecto.getFechaFin());
-        proyectoDTO.setEtiquetas(proyecto.getEtiquetas());
-        proyectoDTO.setResponsables(proyecto.getResponsables());
-        proyectoDTO.setDescripcion(proyecto.getDescripcion());
-        proyectoDTO.setLiderProyecto(proyecto.getLiderProyecto());
-        return proyectoDTO;
+    public  Function<Proyecto, ProyectoDTO> proyectoAProyectoDto() {
+        return proyecto -> new ProyectoDTO(
+                proyecto.getId(),
+                proyecto.getNombre(),
+                proyecto.getFechaInicio(),
+                proyecto.getFechaFin(),
+                proyecto.getEtiquetas(),
+                proyecto.getResponsables(),
+                proyecto.getDescripcion(),
+                proyecto.getLiderProyecto(),
+                proyecto.getEstado()
+        );
     }
 }
+

@@ -1,5 +1,6 @@
 package com.sofka.gestionRiesgo.usecases.proyectousecase;
 
+import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.mappers.MapperProyecto;
 import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import com.sofka.gestionRiesgo.repository.GuardarProyecto;
@@ -8,26 +9,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
-import java.util.Objects;
-
 @Service
 @Validated
-public class ActualizarProyectoPorIdUseCase implements GuardarProyecto {
+public class CrearProyectoUseCase implements GuardarProyecto {
 
     private final ProyectoRepository proyectoRepository;
     private final MapperProyecto mapperProyecto;
 
-    public ActualizarProyectoPorIdUseCase(ProyectoRepository proyectoRepository, MapperProyecto mapperProyecto) {
+    public CrearProyectoUseCase(ProyectoRepository proyectoRepository, MapperProyecto mapperProyecto) {
         this.proyectoRepository = proyectoRepository;
         this.mapperProyecto = mapperProyecto;
     }
 
     @Override
-    public Mono<ProyectoDTO> apply(ProyectoDTO proyectoDTO) {
-        Objects.requireNonNull(proyectoDTO.getId(), "El id del proyecto es requerido");
+    public Mono<ProyectoDTO> apply(ProyectoDTO nuevoProyecto) {
+        nuevoProyecto.setEstado("Creado");
         return proyectoRepository
-                .save(mapperProyecto.proyectoDtoAProyecto(proyectoDTO.getId())
-                        .apply(proyectoDTO))
-                .thenReturn(proyectoDTO);
+                .save(mapperProyecto.proyectoDtoAProyecto(null).apply(nuevoProyecto))
+                .thenReturn(nuevoProyecto);
     }
 }

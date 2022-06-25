@@ -21,11 +21,12 @@ public class Proyecto {
     private List<String> responsables;
     private String descripcion;
     private String liderProyecto;
+    private String estado;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer id, String nombre, String fechaInicio, String fechaFin, List<String> etiquetas, List<String> responsables, String descripcion, String liderProyecto) {
+    public Proyecto(Integer id, String nombre, String fechaInicio, String fechaFin, List<String> etiquetas, List<String> responsables, String descripcion, String liderProyecto, String estado) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -34,6 +35,7 @@ public class Proyecto {
         this.responsables = responsables;
         this.descripcion = descripcion;
         this.liderProyecto = liderProyecto;
+        this.estado = estado;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class Proyecto {
                 ", responsables=" + responsables +
                 ", descripcion='" + descripcion + '\'' +
                 ", liderProyecto='" + liderProyecto + '\'' +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }
