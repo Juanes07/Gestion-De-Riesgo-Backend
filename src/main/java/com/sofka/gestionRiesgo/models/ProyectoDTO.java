@@ -22,7 +22,6 @@ public class ProyectoDTO {
     @NotBlank(message = "La fechaInicio es requerida")
     private String fechaInicio ;
 
-    @NotBlank(message = "La fechaFin es requerida")
     private String fechaFin ;
 
     private List<String> etiquetas;

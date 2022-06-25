@@ -6,17 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class RiesgoDTO {
-    @NotBlank(message = "Debe existir el Id para este objeto")
     private Integer id;
 
-    @NotBlank(message = "Debe existir el IdProyecto para este objeto")
     private Integer idProyecto;
 
     @NotBlank(message = "Debe existir el nombreProyecto para este objeto")
@@ -27,23 +24,21 @@ public class RiesgoDTO {
     private String nombreRiesgo;
 
     @NotBlank(message = "Debe existir el fechaDeteccion para este objeto")
-    private String fechaDeteccion ;
+    private String fechaDeteccion;
 
-    @NotBlank(message = "Debe existir el fechaCierre para este objeto")
-    private String fechaCierre ;
+    private String fechaCierre;
 
-    @Length(min = 5, max = 50, message = "la longitud de las etiquetas debe estar entre 5 y 699 caracteres")
     private List<String> etiquetas;
 
-    @Length(min = 5, max = 699, message = "la longitud de la descripcion debe estar entre 5 y 699 caracteres")
+    @Length(min = 2, max = 699, message = "la longitud de la descripcion debe estar entre 5 y 699 caracteres")
     @NotBlank(message = "Debe existir el descripcionRiesgo para este objeto")
     private String descripcionRiesgo;
 
     @NotBlank(message = "Debe existir el estadoRiesgo para este objeto")
     private String estadoRiesgo;
 
-    @NotBlank(message = "Debe existir el audencia para este objeto")
-    private String audencia;
+    @NotBlank(message = "Debe existir el audiencia para este objeto")
+    private String audiencia;
 
     @NotBlank(message = "Debe existir el categoria para este objeto")
     private String categoria;
@@ -55,27 +50,22 @@ public class RiesgoDTO {
     @NotBlank(message = "Debe existir el detalleTipoRiesgo para este objeto")
     private String detalleTipoRiesgo;
 
-    @NotBlank(message = "Debe existir el probabilidadDeOcurrenciaDelRiesgo para este objeto")
     private Integer probabilidadDeOcurrenciaDelRiesgo;
 
-    @NotBlank(message = "Debe existir el impactoDeOcurrenciaDelRiesgo para este objeto")
     private Integer impactoDeOcurrenciaDelRiesgo;
 
     @Length(min = 5, max = 1000, message = "la longitud del descripcionPlanMitigacion debe estar entre 5 y 1000 caracteres")
     @NotBlank(message = "Debe existir el descripcionPlanDeMitigacion para este objeto")
     private String descripcionPlanDeMitigacion;
 
-    @NotBlank(message = "Debe existir el emailsPlanDeMitigacion para este objeto")
     private List<String> emailsPlanDeMitigacion;
 
     @Length(min = 5, max = 1000, message = "la longitud del descripcionPlanContigencia debe estar entre 5 y 1000 caracteres")
-    @NotBlank(message = "Debe existir el descripcionPlanDeContigencia para este objeto")
-    private String descripcionPlanDeContigencia;
+    @NotBlank(message = "Debe existir la descripcionPlanDeContigencia para este objeto")
+    private String descripcionPlanDeContingencia;
 
-    @NotBlank(message = "Debe existir el emailsPlanDeContigencia para este objeto")
     private List<String> emailsPlanDeContigencia;
 
-    @NotBlank(message = "Debe existir el valorCriticidad para este objeto")
     private Integer valorCriticidad;
 
     @NotBlank(message = "Debe existir el estadoDeVidaDelRiesgo para este objeto")
@@ -94,7 +84,7 @@ public class RiesgoDTO {
                 ", etiquetas=" + etiquetas +
                 ", descripcionRiesgo='" + descripcionRiesgo + '\'' +
                 ", estadoRiesgo='" + estadoRiesgo + '\'' +
-                ", audencia='" + audencia + '\'' +
+                ", audencia='" + audiencia + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", tipoRiesgo='" + tipoRiesgo + '\'' +
                 ", detalleTipoRiesgo='" + detalleTipoRiesgo + '\'' +
@@ -102,7 +92,7 @@ public class RiesgoDTO {
                 ", impactoDeOcurrenciaDelRiesgo=" + impactoDeOcurrenciaDelRiesgo +
                 ", descripcionPlanDeMitigacion='" + descripcionPlanDeMitigacion + '\'' +
                 ", emailsPlanDeMitigacion=" + emailsPlanDeMitigacion +
-                ", descripcionPlanDeContigencia='" + descripcionPlanDeContigencia + '\'' +
+                ", descripcionPlanDeContigencia='" + descripcionPlanDeContingencia + '\'' +
                 ", emailsPlanDeContigencia=" + emailsPlanDeContigencia +
                 ", valorCriticidad=" + valorCriticidad +
                 ", estadoDeVidaDelRiesgo='" + estadoDeVidaDelRiesgo + '\'' +

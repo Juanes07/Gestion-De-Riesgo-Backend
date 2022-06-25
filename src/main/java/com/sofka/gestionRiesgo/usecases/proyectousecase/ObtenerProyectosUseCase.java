@@ -1,4 +1,32 @@
 package com.sofka.gestionRiesgo.usecases.proyectousecase;
 
-public class ObtenerProyectosUseCase {
+import com.sofka.gestionRiesgo.collections.Proyecto;
+import com.sofka.gestionRiesgo.mappers.MapperProyecto;
+import com.sofka.gestionRiesgo.models.ProyectoDTO;
+import com.sofka.gestionRiesgo.repository.ProyectoRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import reactor.core.publisher.Flux;
+
+import java.util.function.Supplier;
+@Service
+@Validated
+public class ObtenerProyectosUseCase implements Supplier<Flux<ProyectoDTO>> {
+
+
+    private final ProyectoRepository proyectoRepository;
+    private final MapperProyecto mapperProyecto;
+
+    public ObtenerProyectosUseCase(ProyectoRepository proyectoRepository, MapperProyecto mapperProyecto) {
+        this.proyectoRepository = proyectoRepository;
+        this.mapperProyecto = mapperProyecto;
+    }
+
+    @Override
+    public Flux<ProyectoDTO> get() {
+        return proyectoRepository.findAll()
+                .map(proyecto -> mapperProyecto.proyectoAProyectoDto().apply(proyecto));
+
+
+    }
 }
