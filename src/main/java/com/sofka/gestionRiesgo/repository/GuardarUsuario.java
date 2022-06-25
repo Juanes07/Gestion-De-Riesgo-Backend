@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 import javax.validation.Valid;
 
 public interface GuardarUsuario {
-    Mono<String> apply(@Valid UsuarioDTO usuarioDTO);
+    Mono<UsuarioDTO> apply(@Valid UsuarioDTO usuarioDTO);
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UsuarioDTO {
 
-    @NotBlank(message = "Debe existir el Id para este objeto")
+
     private Integer id;
 
     @NotBlank(message = "El nombre es requerido")
@@ -20,7 +20,6 @@ public class UsuarioDTO {
     @NotBlank(message = "El email es requerido")
     private String email;
 
-    @NotBlank(message = "La listaRoles es requerido")
     private List<String> roles;
 
     @Override
