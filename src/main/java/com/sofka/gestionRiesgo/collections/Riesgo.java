@@ -14,9 +14,11 @@ public class Riesgo {
     @Id
     private Integer id;
     private Integer idProyecto;
+
+    private String nombreProyecto;
     private String nombreRiesgo;
-    private LocalDate fechaDeteccion;
-    private LocalDate fechaCierre;
+    private String fechaDeteccion;
+    private String fechaCierre;
     private List<String> etiquetas;
     private String descripcionRiesgo;
     private String estadoRiesgo;
@@ -39,9 +41,10 @@ public class Riesgo {
 
     public Riesgo(Integer id,
                   Integer idProyecto,
+                  String nombreProyecto,
                   String nombreRiesgo,
-                  LocalDate fechaDeteccion,
-                  LocalDate fechaCierre,
+                  String fechaDeteccion,
+                  String fechaCierre,
                   List<String> etiquetas,
                   String descripcionRiesgo,
                   String estadoRiesgo,
@@ -59,6 +62,7 @@ public class Riesgo {
                   String estadoDeVidaDelRiesgo) {
         this.id = id;
         this.idProyecto = idProyecto;
+        this.nombreProyecto = nombreProyecto;
         this.nombreRiesgo = nombreRiesgo;
         this.fechaDeteccion = fechaDeteccion;
         this.fechaCierre = fechaCierre;
@@ -84,6 +88,7 @@ public class Riesgo {
         return "Riesgo{" +
                 "id=" + id +
                 ", idProyecto=" + idProyecto +
+                ", nombreProyecto='" + nombreProyecto + '\'' +
                 ", nombreRiesgo='" + nombreRiesgo + '\'' +
                 ", fechaDeteccion=" + fechaDeteccion +
                 ", fechaCierre=" + fechaCierre +

@@ -1,4 +1,4 @@
 package com.sofka.gestionRiesgo.usecases.proyectousecase;
 
-public class CrearProyectoUseCase {
+public class ObtenerProyectoPorIdUseCase {
 }

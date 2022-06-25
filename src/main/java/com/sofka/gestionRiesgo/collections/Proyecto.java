@@ -15,33 +15,25 @@ public class Proyecto {
     @Id
     private Integer id;
     private String nombre;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     private List<String> etiquetas;
-    private List<String> emails;
+    private List<String> responsables;
     private String descripcion;
-
+    private String liderProyecto;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, List<String> etiquetas, List<String> emails, String descripcion) {
+    public Proyecto(Integer id, String nombre, String fechaInicio, String fechaFin, List<String> etiquetas, List<String> responsables, String descripcion, String liderProyecto) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.etiquetas = etiquetas;
-        this.emails = emails;
+        this.responsables = responsables;
         this.descripcion = descripcion;
-    }
-
-    public Proyecto(Integer id, String nombre, LocalDate fechaInicio, List<String> etiquetas, List<String> emails, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fechaInicio = fechaInicio;
-        this.etiquetas = etiquetas;
-        this.emails = emails;
-        this.descripcion = descripcion;
+        this.liderProyecto = liderProyecto;
     }
 
     @Override
@@ -49,11 +41,12 @@ public class Proyecto {
         return "Proyecto{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", fechaInicio=" + fechaInicio +
-                ", fechaFin=" + fechaFin +
+                ", fechaInicio='" + fechaInicio + '\'' +
+                ", fechaFin='" + fechaFin + '\'' +
                 ", etiquetas=" + etiquetas +
-                ", emails=" + emails +
+                ", responsables=" + responsables +
                 ", descripcion='" + descripcion + '\'' +
+                ", liderProyecto='" + liderProyecto + '\'' +
                 '}';
     }
 }

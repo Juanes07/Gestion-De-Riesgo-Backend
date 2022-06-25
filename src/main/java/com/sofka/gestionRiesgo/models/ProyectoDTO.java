@@ -1,10 +1,16 @@
 package com.sofka.gestionRiesgo.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
+
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class ProyectoDTO {
 
     @NotBlank(message = "Debe existir el Id para este objeto")
@@ -15,39 +21,23 @@ public class ProyectoDTO {
     private String nombre;
 
     @NotBlank(message = "La fechaInicio es requerida")
-    private LocalDate fechaInicio;
+    private String fechaInicio ;
 
-    private LocalDate fechaFin;
+    @NotBlank(message = "La fechaFin es requerida")
+    private String fechaFin ;
 
     @Length(min = 5, max = 50, message = "la longitud de las etiquetas debe estar entre 5 y 50 caracteres")
     private List<String> etiquetas;
 
-    @NotBlank(message = "Los emails son requeridos")
-    private List<String> emails;
+    @NotBlank(message = "Los responsables son requeridos")
+    private List<String> responsables;
 
     @Length(min = 5, max = 699, message = "la longitud de la descripcion debe estar entre 5 y 699 caracteres")
     @NotBlank(message = "La descripcion es requerida")
     private String descripcion;
 
+    private String liderProyecto;
 
-    public ProyectoDTO(Integer id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, List<String> etiquetas, List<String> emails, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.etiquetas = etiquetas;
-        this.emails = emails;
-        this.descripcion = descripcion;
-    }
-
-    public ProyectoDTO(Integer id, String nombre, LocalDate fechaInicio, List<String> etiquetas, List<String> emails, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fechaInicio = fechaInicio;
-        this.etiquetas = etiquetas;
-        this.emails = emails;
-        this.descripcion = descripcion;
-    }
 
     @Override
     public String toString() {
@@ -57,7 +47,7 @@ public class ProyectoDTO {
                 ", fechaInicio=" + fechaInicio +
                 ", fechaFin=" + fechaFin +
                 ", etiquetas=" + etiquetas +
-                ", emails=" + emails +
+                ", responsables=" + responsables+
                 ", descripcion='" + descripcion + '\'' +
                 '}';
     }
