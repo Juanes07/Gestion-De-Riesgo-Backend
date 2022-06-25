@@ -1,9 +1,7 @@
 package com.sofka.gestionRiesgo.routers;
 
 import com.sofka.gestionRiesgo.models.ProyectoDTO;
-import com.sofka.gestionRiesgo.usecases.proyectousecase.ActualizarProyectoPorIdUseCase;
-import com.sofka.gestionRiesgo.usecases.proyectousecase.CrearProyectoUseCase;
-import com.sofka.gestionRiesgo.usecases.proyectousecase.EliminarProyectoPorIdUserCase;
+import com.sofka.gestionRiesgo.usecases.proyectousecase.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -58,5 +56,26 @@ public class ProyectoRouter {
         );
     }
 
+    @Bean
+    public RouterFunction<ServerResponse> obtenerProyectos(ObtenerProyectosUseCase useCase) {
+        return route(GET("/obtenerProyectos").and(accept(MediaType.APPLICATION_JSON)),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(useCase.get(), ProyectoDTO.class))
+        );
+    }
 
+    @Bean
+    public RouterFunction<ServerResponse> obtenerProyectosPorId(ObtenerProyectoPorIdUseCase useCase) {
+        return route(
+                GET("/obtenerProyecto/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(
+                                useCase.apply(request.pathVariable("id")),
+                                ProyectoDTO.class
+                        ))
+        );
+
+    }
 }
