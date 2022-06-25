@@ -23,11 +23,11 @@ public class ActualizarRiesgoPorIdUseCase implements GuardarRiesgo {
 
     @Override
     public Mono<RiesgoDTO> apply(RiesgoDTO riesgoDTO) {
-        Objects.requireNonNull(riesgoDTO.getId(), "El id del proyecto es requerido");
+        Objects.requireNonNull(riesgoDTO.getId(), "El id del riesgo es requerido");
         return riesgoRepository
                 .save(mapperRiesgo.riesgoDtoARiesgo(riesgoDTO.getId())
                         .apply(riesgoDTO))
-                .thenReturn(riesgoDTO);
+                        .thenReturn(riesgoDTO);
     }
 }
 
