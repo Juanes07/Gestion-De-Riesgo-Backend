@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProyectoDTO {
 
-    @NotBlank(message = "Debe existir el Id para este objeto")
     private Integer id;
 
     @Length(min = 5, max = 50, message = "la longitud del nombre debe estar entre 5 y 50 caracteres")
@@ -26,10 +25,8 @@ public class ProyectoDTO {
     @NotBlank(message = "La fechaFin es requerida")
     private String fechaFin ;
 
-    @Length(min = 5, max = 50, message = "la longitud de las etiquetas debe estar entre 5 y 50 caracteres")
     private List<String> etiquetas;
 
-    @NotBlank(message = "Los responsables son requeridos")
     private List<String> responsables;
 
     @Length(min = 5, max = 699, message = "la longitud de la descripcion debe estar entre 5 y 699 caracteres")
