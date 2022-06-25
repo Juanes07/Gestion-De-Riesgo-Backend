@@ -23,6 +23,7 @@ public class CrearProyectoUseCase implements GuardarProyecto {
 
     @Override
     public Mono<ProyectoDTO> apply(ProyectoDTO nuevoProyecto) {
+        nuevoProyecto.setEstado("Creado");
         return proyectoRepository
                 .save(mapperProyecto.proyectoDtoAProyecto(null).apply(nuevoProyecto))
                 .thenReturn(nuevoProyecto);

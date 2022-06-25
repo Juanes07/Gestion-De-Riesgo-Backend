@@ -20,6 +20,7 @@ public class MapperProyecto {
             proyecto.setResponsables(proyectoDTO.getResponsables());
             proyecto.setDescripcion(proyectoDTO.getDescripcion());
             proyecto.setLiderProyecto(proyectoDTO.getLiderProyecto());
+            proyecto.setEstado(proyectoDTO.getEstado());
             return proyecto;
         };
     }
@@ -34,7 +35,8 @@ public class MapperProyecto {
                 proyecto.getEtiquetas(),
                 proyecto.getResponsables(),
                 proyecto.getDescripcion(),
-                proyecto.getLiderProyecto()
+                proyecto.getLiderProyecto(),
+                proyecto.getEstado()
         );
     }
 }

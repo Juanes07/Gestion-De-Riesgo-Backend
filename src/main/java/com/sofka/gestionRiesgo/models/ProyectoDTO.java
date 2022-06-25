@@ -35,17 +35,21 @@ public class ProyectoDTO {
 
     private String liderProyecto;
 
+    private String estado;
+
 
     @Override
     public String toString() {
         return "ProyectoDTO{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", fechaInicio=" + fechaInicio +
-                ", fechaFin=" + fechaFin +
+                ", fechaInicio='" + fechaInicio + '\'' +
+                ", fechaFin='" + fechaFin + '\'' +
                 ", etiquetas=" + etiquetas +
-                ", responsables=" + responsables+
+                ", responsables=" + responsables +
                 ", descripcion='" + descripcion + '\'' +
+                ", liderProyecto='" + liderProyecto + '\'' +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }
