@@ -48,15 +48,15 @@ public class ProyectoRouter {
         );
     }
 
-//    @Bean
-//    public RouterFunction<ServerResponse> delete(EliminarProyectoPorIdUserCase useCase) {
-//        return route(
-//                DELETE("/eliminar/{id}").and(accept(MediaType.APPLICATION_JSON)),
-//                request -> ServerResponse.accepted()
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), Void.class))
-//        );
-//    }
+    @Bean
+    public RouterFunction<ServerResponse> delete(EliminarProyectoPorIdUserCase useCase) {
+        return route(
+                DELETE("/eliminar/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> ServerResponse.accepted()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), Void.class))
+        );
+    }
 
 
 }
