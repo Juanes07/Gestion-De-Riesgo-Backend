@@ -1,6 +1,9 @@
 package com.sofka.gestionRiesgo.routers;
 
+import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import com.sofka.gestionRiesgo.models.RiesgoDTO;
+import com.sofka.gestionRiesgo.usecases.proyectousecase.ActualizarProyectoPorIdUseCase;
+import com.sofka.gestionRiesgo.usecases.riesgosusecase.ActualizarRiesgoPorIdUseCase;
 import com.sofka.gestionRiesgo.usecases.riesgosusecase.CrearRiesgoUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +15,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
-import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @RestController
@@ -29,6 +31,19 @@ public class RiesgoRouter {
 
         return route(
                 POST("/crearRiesgo").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(RiesgoDTO.class).flatMap(executor)
+        );
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> actualizarRiesgo(ActualizarRiesgoPorIdUseCase useCase) {
+        Function<RiesgoDTO, Mono<ServerResponse>> executor = riesgoDTO -> useCase.apply(riesgoDTO)
+                .flatMap(result -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .bodyValue(result));
+
+        return route(
+                PUT("/actualizarRiesgo/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RiesgoDTO.class).flatMap(executor)
         );
     }
