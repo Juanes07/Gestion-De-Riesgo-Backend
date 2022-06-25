@@ -12,7 +12,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UsuarioDTO {
 
-
     private Integer id;
 
     @NotBlank(message = "El nombre es requerido")

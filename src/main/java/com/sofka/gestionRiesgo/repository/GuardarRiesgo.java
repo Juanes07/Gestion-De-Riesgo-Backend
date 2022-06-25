@@ -8,5 +8,5 @@ import javax.validation.Valid;
 
 public interface GuardarRiesgo {
 
-    Mono<String> apply(@Valid RiesgoDTO riesgoDTO);
+    Mono<RiesgoDTO> apply(@Valid RiesgoDTO riesgoDTO);
 }
