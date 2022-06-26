@@ -14,13 +14,14 @@ public class Riesgo {
     @Id
     private Integer id;
     private Integer idProyecto;
-
     private String nombreProyecto;
     private String nombreRiesgo;
     private String fechaDeteccion;
     private String fechaCierre;
     private List<String> etiquetas;
     private String descripcionRiesgo;
+
+
     private String estadoRiesgo;
     private String audencia;
     private String categoria;
