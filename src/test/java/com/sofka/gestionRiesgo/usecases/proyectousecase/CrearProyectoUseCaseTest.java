@@ -66,7 +66,7 @@ class CrearProyectoUseCaseTest {
 
                 .expectNextMatches(q -> {
 
-                    assert proyectoDto.getId().equals(1);
+                    assert proyectoDto.getId().equals(q.getId());
                     assert proyectoDto.getNombre().equals("Matematicas");
                     assert proyectoDto.getFechaInicio().equals("26/06/2022");
                     assert proyectoDto.getFechaFin().equals("23/04/22");
