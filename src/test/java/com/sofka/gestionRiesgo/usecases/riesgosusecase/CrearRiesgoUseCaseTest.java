@@ -1,25 +1,28 @@
 package com.sofka.gestionRiesgo.usecases.riesgosusecase;
 
+import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.collections.Riesgo;
 import com.sofka.gestionRiesgo.mappers.MapperRiesgo;
 import com.sofka.gestionRiesgo.models.RiesgoDTO;
+import com.sofka.gestionRiesgo.repository.ProyectoRepository;
 import com.sofka.gestionRiesgo.repository.RiesgoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.Mockito.*;
 
 class CrearRiesgoUseCaseTest {
 
     @Mock
     RiesgoRepository riesgoRepository;
+    @Mock
+    ProyectoRepository proyectoRepository;
 
     @Mock
     CrearRiesgoUseCase crearRiesgoUseCase;
@@ -28,12 +31,26 @@ class CrearRiesgoUseCaseTest {
 
     @BeforeEach
     public void setUp() {
+        proyectoRepository = mock(ProyectoRepository.class);
         riesgoRepository = mock(RiesgoRepository.class);
-        crearRiesgoUseCase = new CrearRiesgoUseCase(riesgoRepository, mapperRiesgo);
+
+        crearRiesgoUseCase = new CrearRiesgoUseCase(proyectoRepository, riesgoRepository, mapperRiesgo);
     }
 
     @Test
-    void getValidationCreateTest(){
+    void getValidationCreateTest() {
+
+        var proyecto = new Proyecto();
+        proyecto.setId(1);
+        proyecto.setNombre("Matematicas");
+        proyecto.setFechaInicio("26/06/2022");
+        proyecto.setFechaFin("23/04/22");
+        proyecto.setEtiquetas(List.of("primera", "lista"));
+        proyecto.setResponsables(List.of("david", "jesus"));
+        proyecto.setDescripcion("hello como estas");
+        proyecto.setLiderProyecto("manuel salas");
+        proyecto.setEstado("activo");
+
         var riesgo = new Riesgo();
         riesgo.setId(1);
         riesgo.setIdProyecto(1);
@@ -59,16 +76,43 @@ class CrearRiesgoUseCaseTest {
 
         RiesgoDTO riesgoDTO = mapperRiesgo.riesgoARiesgoDto().apply(riesgo);
 
-        when(riesgoRepository.save(Mockito.any(Riesgo.class))).thenReturn(Mono.just(riesgo));
+
+        when(proyectoRepository.findById(1)).thenReturn(Mono.just(proyecto));
+
+        when(riesgoRepository.save(any(Riesgo.class))).thenReturn(Mono.just(riesgo));
 
         StepVerifier.create(crearRiesgoUseCase.apply(riesgoDTO))
                 .expectNextMatches(riesgoDTO1 -> {
+
                     assert riesgoDTO1.getId().equals(riesgo.getId());
+                    assert riesgoDTO1.getIdProyecto().equals(riesgo.getIdProyecto());
+                    assert riesgoDTO1.getNombreProyecto().equals(riesgo.getNombreProyecto());
+                    assert riesgoDTO1.getNombreRiesgo().equals(riesgo.getNombreRiesgo());
+                    assert riesgoDTO1.getFechaDeteccion().equals(riesgo.getFechaDeteccion());
+                    assert riesgoDTO1.getFechaCierre().equals(riesgo.getFechaCierre());
+                    assert riesgoDTO1.getEtiquetas().equals(riesgo.getEtiquetas());
+                    assert riesgoDTO1.getDescripcionRiesgo().equals(riesgo.getDescripcionRiesgo());
+                    assert riesgoDTO1.getEstadoRiesgo().equals(riesgo.getEstadoRiesgo());
+                    assert riesgoDTO1.getAudiencia().equals(riesgo.getAudencia());
+                    assert riesgoDTO1.getCategoria().equals(riesgo.getCategoria());
+                    assert riesgoDTO1.getTipoRiesgo().equals(riesgo.getTipoRiesgo());
+                    assert riesgoDTO1.getDetalleTipoRiesgo().equals(riesgo.getDetalleTipoRiesgo());
+                    assert riesgoDTO1.getProbabilidadDeOcurrenciaDelRiesgo().equals(riesgo.getProbabilidadDeOcurrenciaDelRiesgo());
+                    assert riesgoDTO1.getImpactoDeOcurrenciaDelRiesgo().equals(riesgo.getImpactoDeOcurrenciaDelRiesgo());
+                    assert riesgoDTO1.getDescripcionPlanDeMitigacion().equals(riesgo.getDescripcionPlanDeMitigacion());
+                    assert riesgoDTO1.getEmailsPlanDeMitigacion().equals(riesgo.getEmailsPlanDeMitigacion());
+                    assert riesgoDTO1.getDescripcionPlanDeContingencia().equals(riesgo.getDescripcionPlanDeContigencia());
+                    assert riesgoDTO1.getEmailsPlanDeContigencia().equals(riesgo.getEmailsPlanDeContigencia());
+                    assert riesgoDTO1.getValorCriticidad().equals(riesgo.getValorCriticidad());
+                    assert riesgoDTO1.getEstadoDeVidaDelRiesgo().equals(riesgo.getEstadoDeVidaDelRiesgo());
+
                     return true;
                 }).expectComplete();
 
-        verify(riesgoRepository).save(Mockito.any(Riesgo.class));
+
+
+        verify(proyectoRepository).findById(1);
+
 
     }
-
 }
