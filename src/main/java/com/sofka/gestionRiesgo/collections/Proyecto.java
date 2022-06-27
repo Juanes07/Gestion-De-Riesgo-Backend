@@ -38,6 +38,17 @@ public class Proyecto {
         this.estado = estado;
     }
 
+    public Proyecto(Integer id, String nombre, String fechaInicio, String fechaFin, String descripcion, String liderProyecto, String estado) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.descripcion = descripcion;
+        this.liderProyecto = liderProyecto;
+        this.estado = estado;
+
+    }
+
     @Override
     public String toString() {
         return "Proyecto{" +

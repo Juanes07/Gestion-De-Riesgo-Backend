@@ -52,7 +52,7 @@ public class ProyectoRouter {
                 DELETE("/eliminarProyecto/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.accepted()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), Void.class))
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), void.class))
         );
     }
 
