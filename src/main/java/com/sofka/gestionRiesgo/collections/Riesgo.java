@@ -21,7 +21,6 @@ public class Riesgo {
     private List<String> etiquetas;
     private String descripcionRiesgo;
 
-
     private String estadoRiesgo;
     private String audencia;
     private String categoria;
