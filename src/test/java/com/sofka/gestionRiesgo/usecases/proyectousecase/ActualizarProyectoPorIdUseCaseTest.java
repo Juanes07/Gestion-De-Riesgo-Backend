@@ -44,7 +44,7 @@ class ActualizarProyectoPorIdUseCaseTest {
 
         var proyectoDto = new ProyectoDTO();
         proyectoDto.setId(proyecto.getId());
-        proyectoDto.setNombre(proyecto.getNombre());
+        proyectoDto.setNombre("Matematicas proyecto actualizado");
         proyectoDto.setFechaInicio(proyecto.getFechaInicio());
         proyectoDto.setFechaFin(proyecto.getFechaFin());
         proyectoDto.setEtiquetas(proyecto.getEtiquetas());
@@ -60,7 +60,7 @@ class ActualizarProyectoPorIdUseCaseTest {
 
                 .expectNextMatches(q -> {
                     assert proyectoDto.getId().equals(1);
-                    assert proyectoDto.getNombre().equals("Matematicas");
+                    assert proyectoDto.getNombre().equals("Matematicas proyecto actualizado");
                     assert proyectoDto.getFechaInicio().equals("26/06/2022");
                     assert proyectoDto.getFechaFin().equals("23/04/22");
                     assert proyectoDto.getEtiquetas().equals(List.of("primera", "lista"));
