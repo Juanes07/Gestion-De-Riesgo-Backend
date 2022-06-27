@@ -35,7 +35,7 @@ class ObtenerRiesgosPorIdProyectoUseCaseTest {
     }
 
     @Test
-    void getValidationCreateTest(){
+    void getValidationGetRiesgosIdProyectoTest(){
         var riesgo = new Riesgo();
         riesgo.setId(1);
         riesgo.setIdProyecto(2);

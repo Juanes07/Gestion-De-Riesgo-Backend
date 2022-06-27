@@ -33,7 +33,7 @@ class ActualizarRiesgoPorIdUseCaseTest {
     }
 
     @Test
-    void getValidationCreateTest(){
+    void getValidationUpdateTest(){
         var riesgo = new Riesgo();
         riesgo.setId(1);
         riesgo.setIdProyecto(1);
