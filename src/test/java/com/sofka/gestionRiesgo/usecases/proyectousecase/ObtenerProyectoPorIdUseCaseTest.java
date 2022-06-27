@@ -44,13 +44,13 @@ class ObtenerProyectoPorIdUseCaseTest {
 
         StepVerifier.create(obtenerProyectoPorIdUseCase.apply("1"))
                 .expectNextMatches(proyectoDTO-> {
-                    assertEquals(proyectoDto.getId(),1);
-                    assertEquals(proyectoDto.getNombre(),"Matematicas");
-                    assertEquals(proyectoDto.getFechaInicio(),"26/06/2022");
-                    assertEquals(proyectoDto.getFechaFin(),"23/04/22");
-                    assertEquals(proyectoDto.getDescripcion(),"hello como estas");
-                    assertEquals(proyectoDto.getLiderProyecto(),"manuel salas");
-                    assertEquals(proyectoDto.getEstado(),"activo");
+                    assertEquals(proyectoDTO.getId(),1);
+                    assertEquals(proyectoDTO.getNombre(),"Matematicas");
+                    assertEquals(proyectoDTO.getFechaInicio(),"26/06/2022");
+                    assertEquals(proyectoDTO.getFechaFin(),"23/04/22");
+                    assertEquals(proyectoDTO.getDescripcion(),"hello como estas");
+                    assertEquals(proyectoDTO.getLiderProyecto(),"manuel salas");
+                    assertEquals(proyectoDTO.getEstado(),"activo");
                     return true;
                 }).expectComplete();
 

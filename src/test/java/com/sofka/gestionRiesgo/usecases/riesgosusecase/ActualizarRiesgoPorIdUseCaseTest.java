@@ -22,14 +22,14 @@ class ActualizarRiesgoPorIdUseCaseTest {
     RiesgoRepository riesgoRepository;
 
     @Mock
-    CrearRiesgoUseCase crearRiesgoUseCase;
+    ActualizarRiesgoPorIdUseCase actualizarRiesgoPorIdUseCase;
 
     MapperRiesgo mapperRiesgo = new MapperRiesgo();
 
     @BeforeEach
     public void setUp() {
         riesgoRepository = mock(RiesgoRepository.class);
-        crearRiesgoUseCase = new CrearRiesgoUseCase(riesgoRepository, mapperRiesgo);
+        actualizarRiesgoPorIdUseCase = new ActualizarRiesgoPorIdUseCase(riesgoRepository, mapperRiesgo);
     }
 
     @Test
@@ -62,7 +62,7 @@ class ActualizarRiesgoPorIdUseCaseTest {
 
         when(riesgoRepository.save(Mockito.any(Riesgo.class))).thenReturn(Mono.just(riesgo));
 
-        StepVerifier.create(crearRiesgoUseCase.apply(riesgoDTO))
+        StepVerifier.create(actualizarRiesgoPorIdUseCase.apply(riesgoDTO))
                 .expectNextMatches(riesgoDTO1 -> {
                     assert riesgoDTO1.getId().equals(riesgo.getId());
                     assert riesgoDTO1.getNombreProyecto().equals("Proyecto prueba Actualizado");
