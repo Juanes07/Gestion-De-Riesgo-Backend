@@ -57,5 +57,6 @@ class ObtenerProyectoPorIdUseCaseTest {
 
         verify(proyectoRepository).findById(proyectoDto.getId());
 
+
     }
 }
