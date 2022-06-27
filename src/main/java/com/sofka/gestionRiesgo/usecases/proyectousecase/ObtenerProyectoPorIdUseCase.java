@@ -25,7 +25,7 @@ public class ObtenerProyectoPorIdUseCase implements Function<String, Mono<Proyec
     public Mono<ProyectoDTO> apply(String id) {
         return proyectoRepository
                 .findById(Integer.parseInt(id))
-                .map(proyecto -> mapperProyecto.proyectoAProyectoDto().apply(proyecto));
+                .map(mapperProyecto.proyectoAProyectoDto());
 
 
     }

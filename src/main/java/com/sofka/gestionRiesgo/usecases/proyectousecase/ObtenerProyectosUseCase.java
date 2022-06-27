@@ -25,7 +25,7 @@ public class ObtenerProyectosUseCase implements Supplier<Flux<ProyectoDTO>> {
     @Override
     public Flux<ProyectoDTO> get() {
         return proyectoRepository.findAll()
-                .map(proyecto -> mapperProyecto.proyectoAProyectoDto().apply(proyecto));
+                .map(mapperProyecto.proyectoAProyectoDto());
 
 
     }
