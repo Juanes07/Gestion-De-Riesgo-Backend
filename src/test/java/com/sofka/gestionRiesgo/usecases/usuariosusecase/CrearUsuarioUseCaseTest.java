@@ -1,14 +1,10 @@
 package com.sofka.gestionRiesgo.usecases.usuariosusecase;
 
-import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.collections.Usuario;
-import com.sofka.gestionRiesgo.mappers.MapperProyecto;
 import com.sofka.gestionRiesgo.mappers.MapperUsuario;
-import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import com.sofka.gestionRiesgo.models.UsuarioDTO;
-import com.sofka.gestionRiesgo.repository.ProyectoRepository;
 import com.sofka.gestionRiesgo.repository.UsuarioRepository;
-import com.sofka.gestionRiesgo.usecases.proyectousecase.CrearProyectoUseCase;
+import com.sofka.gestionRiesgo.service.SequenceGeneratorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -18,7 +14,6 @@ import reactor.test.StepVerifier;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CrearUsuarioUseCaseTest {
@@ -30,12 +25,15 @@ class CrearUsuarioUseCaseTest {
 
     MapperUsuario mapperUsuario = new MapperUsuario();
 
+    @Mock
+    SequenceGeneratorService service;
+
 
     @BeforeEach
     public void setUp() {
-
+        service = Mockito.mock(SequenceGeneratorService.class);
         usuarioRepository = mock(UsuarioRepository.class);
-        crearUsuarioUseCase = new CrearUsuarioUseCase(usuarioRepository, mapperUsuario);
+        crearUsuarioUseCase = new CrearUsuarioUseCase(usuarioRepository, mapperUsuario, service);
 
     }
 
@@ -57,6 +55,8 @@ class CrearUsuarioUseCaseTest {
 
         when(usuarioRepository.save(Mockito.any(Usuario.class))).thenReturn(Mono.just(usuario));
 
+        when(service.getSequenceNumber("user_sequence")).thenReturn(Mono.just(1));
+
         StepVerifier.create(crearUsuarioUseCase.apply(usuarioDTO))
 
                 .expectNextMatches(q -> {
@@ -68,7 +68,7 @@ class CrearUsuarioUseCaseTest {
                     return true;
                 }).verifyComplete();
 
-        verify(usuarioRepository).save(Mockito.any(Usuario.class));
+        verify(service).getSequenceNumber("user_sequence");
     }
 }
 
