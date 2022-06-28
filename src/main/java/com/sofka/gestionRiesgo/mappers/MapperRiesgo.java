@@ -14,6 +14,7 @@ public class MapperRiesgo {
             var riesgo = new Riesgo();
             riesgo.setId(riesgoDTO.getId());
             riesgo.setIdProyecto(riesgoDTO.getIdProyecto());
+            riesgo.setCreadorRiesgo(riesgoDTO.getCreadorRiesgo());
             riesgo.setNombreProyecto(riesgoDTO.getNombreProyecto());
             riesgo.setNombreRiesgo(riesgoDTO.getNombreRiesgo());
             riesgo.setFechaDeteccion(riesgoDTO.getFechaDeteccion());
@@ -21,7 +22,7 @@ public class MapperRiesgo {
             riesgo.setEtiquetas(riesgoDTO.getEtiquetas());
             riesgo.setDescripcionRiesgo(riesgoDTO.getDescripcionRiesgo());
             riesgo.setEstadoRiesgo(riesgoDTO.getEstadoRiesgo());
-            riesgo.setAudencia(riesgoDTO.getAudiencia());
+            riesgo.setAudiencia(riesgoDTO.getAudiencia());
             riesgo.setCategoria(riesgoDTO.getCategoria());
             riesgo.setTipoRiesgo(riesgoDTO.getTipoRiesgo());
             riesgo.setDetalleTipoRiesgo(riesgoDTO.getDetalleTipoRiesgo());
@@ -41,6 +42,7 @@ public class MapperRiesgo {
         return riesgo -> new RiesgoDTO(
                 riesgo.getId(),
                 riesgo.getIdProyecto(),
+                riesgo.getCreadorRiesgo(),
                 riesgo.getNombreProyecto(),
                 riesgo.getNombreRiesgo(),
                 riesgo.getFechaDeteccion(),
@@ -48,7 +50,7 @@ public class MapperRiesgo {
                 riesgo.getEtiquetas(),
                 riesgo.getDescripcionRiesgo(),
                 riesgo.getEstadoRiesgo(),
-                riesgo.getAudencia(),
+                riesgo.getAudiencia(),
                 riesgo.getCategoria(),
                 riesgo.getTipoRiesgo(),
                 riesgo.getDetalleTipoRiesgo(),

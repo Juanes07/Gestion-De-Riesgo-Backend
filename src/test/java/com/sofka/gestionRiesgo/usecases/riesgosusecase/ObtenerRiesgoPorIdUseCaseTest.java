@@ -2,12 +2,10 @@ package com.sofka.gestionRiesgo.usecases.riesgosusecase;
 
 import com.sofka.gestionRiesgo.collections.Riesgo;
 import com.sofka.gestionRiesgo.mappers.MapperRiesgo;
-import com.sofka.gestionRiesgo.models.RiesgoDTO;
 import com.sofka.gestionRiesgo.repository.RiesgoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -44,7 +42,7 @@ class ObtenerRiesgoPorIdUseCaseTest {
         riesgo.setEtiquetas(List.of("etiqueta1", "etiqueta1"));
         riesgo.setDescripcionRiesgo("descripcion----");
         riesgo.setEstadoRiesgo("estado riesgo");
-        riesgo.setAudencia("audiencia");
+        riesgo.setAudiencia("audiencia");
         riesgo.setCategoria("categoria");
         riesgo.setTipoRiesgo("tipo riesgo");
         riesgo.setDetalleTipoRiesgo("detalle riesgo ");
