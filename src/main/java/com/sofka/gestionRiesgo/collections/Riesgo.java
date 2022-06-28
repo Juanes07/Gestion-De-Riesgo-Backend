@@ -2,6 +2,7 @@ package com.sofka.gestionRiesgo.collections;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -10,7 +11,8 @@ import java.util.List;
 @Data
 @Document(collection = "riesgo")
 public class Riesgo {
-
+    @Transient
+    public static final String SEQUENCE_RIESGO = "riesgo_sequence";
     @Id
     private Integer id;
     private Integer idProyecto;
