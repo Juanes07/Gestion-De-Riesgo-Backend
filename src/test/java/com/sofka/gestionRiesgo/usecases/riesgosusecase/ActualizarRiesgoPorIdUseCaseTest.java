@@ -13,7 +13,6 @@ import reactor.test.StepVerifier;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class ActualizarRiesgoPorIdUseCaseTest {
@@ -44,7 +43,7 @@ class ActualizarRiesgoPorIdUseCaseTest {
         riesgo.setEtiquetas(List.of("etiqueta1", "etiqueta1"));
         riesgo.setDescripcionRiesgo("descripcion----");
         riesgo.setEstadoRiesgo("estado riesgo");
-        riesgo.setAudencia("audiencia");
+        riesgo.setAudiencia("audiencia");
         riesgo.setCategoria("categoria");
         riesgo.setTipoRiesgo("tipo riesgo");
         riesgo.setDetalleTipoRiesgo("detalle riesgo ");

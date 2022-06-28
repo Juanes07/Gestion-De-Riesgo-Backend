@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 @Data
@@ -14,15 +14,16 @@ public class Riesgo {
     @Id
     private Integer id;
     private Integer idProyecto;
+
+    private String creadorRiesgo;
     private String nombreProyecto;
     private String nombreRiesgo;
     private String fechaDeteccion;
     private String fechaCierre;
     private List<String> etiquetas;
     private String descripcionRiesgo;
-
     private String estadoRiesgo;
-    private String audencia;
+    private String audiencia;
     private String categoria;
     private String tipoRiesgo;
     private String detalleTipoRiesgo;
@@ -41,6 +42,7 @@ public class Riesgo {
 
     public Riesgo(Integer id,
                   Integer idProyecto,
+                  String creadorRiesgo,
                   String nombreProyecto,
                   String nombreRiesgo,
                   String fechaDeteccion,
@@ -48,7 +50,7 @@ public class Riesgo {
                   List<String> etiquetas,
                   String descripcionRiesgo,
                   String estadoRiesgo,
-                  String audencia,
+                  String audiencia,
                   String categoria,
                   String tipoRiesgo,
                   String detalleTipoRiesgo,
@@ -62,6 +64,7 @@ public class Riesgo {
                   String estadoDeVidaDelRiesgo) {
         this.id = id;
         this.idProyecto = idProyecto;
+        this.creadorRiesgo = creadorRiesgo;
         this.nombreProyecto = nombreProyecto;
         this.nombreRiesgo = nombreRiesgo;
         this.fechaDeteccion = fechaDeteccion;
@@ -69,7 +72,7 @@ public class Riesgo {
         this.etiquetas = etiquetas;
         this.descripcionRiesgo = descripcionRiesgo;
         this.estadoRiesgo = estadoRiesgo;
-        this.audencia = audencia;
+        this.audiencia = audiencia;
         this.categoria = categoria;
         this.tipoRiesgo = tipoRiesgo;
         this.detalleTipoRiesgo = detalleTipoRiesgo;
@@ -88,6 +91,7 @@ public class Riesgo {
         return "Riesgo{" +
                 "id=" + id +
                 ", idProyecto=" + idProyecto +
+                ", creadorRiesgo='" + creadorRiesgo + '\'' +
                 ", nombreProyecto='" + nombreProyecto + '\'' +
                 ", nombreRiesgo='" + nombreRiesgo + '\'' +
                 ", fechaDeteccion=" + fechaDeteccion +
@@ -95,7 +99,7 @@ public class Riesgo {
                 ", etiquetas=" + etiquetas +
                 ", descripcionRiesgo='" + descripcionRiesgo + '\'' +
                 ", estadoRiesgo='" + estadoRiesgo + '\'' +
-                ", audencia='" + audencia + '\'' +
+                ", audencia='" + audiencia + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", tipoRiesgo='" + tipoRiesgo + '\'' +
                 ", detalleTipoRiesgo='" + detalleTipoRiesgo + '\'' +

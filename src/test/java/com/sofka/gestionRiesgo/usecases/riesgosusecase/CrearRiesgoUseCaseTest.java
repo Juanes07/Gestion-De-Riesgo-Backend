@@ -61,7 +61,7 @@ class CrearRiesgoUseCaseTest {
         riesgo.setEtiquetas(List.of("etiqueta1", "etiqueta1"));
         riesgo.setDescripcionRiesgo("descripcion----");
         riesgo.setEstadoRiesgo("estado riesgo");
-        riesgo.setAudencia("audiencia");
+        riesgo.setAudiencia("audiencia");
         riesgo.setCategoria("categoria");
         riesgo.setTipoRiesgo("tipo riesgo");
         riesgo.setDetalleTipoRiesgo("detalle riesgo ");
@@ -93,7 +93,7 @@ class CrearRiesgoUseCaseTest {
                     assert riesgoDTO1.getEtiquetas().equals(riesgo.getEtiquetas());
                     assert riesgoDTO1.getDescripcionRiesgo().equals(riesgo.getDescripcionRiesgo());
                     assert riesgoDTO1.getEstadoRiesgo().equals(riesgo.getEstadoRiesgo());
-                    assert riesgoDTO1.getAudiencia().equals(riesgo.getAudencia());
+                    assert riesgoDTO1.getAudiencia().equals(riesgo.getAudiencia());
                     assert riesgoDTO1.getCategoria().equals(riesgo.getCategoria());
                     assert riesgoDTO1.getTipoRiesgo().equals(riesgo.getTipoRiesgo());
                     assert riesgoDTO1.getDetalleTipoRiesgo().equals(riesgo.getDetalleTipoRiesgo());
