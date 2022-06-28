@@ -6,9 +6,11 @@ import com.sofka.gestionRiesgo.mappers.MapperRiesgo;
 import com.sofka.gestionRiesgo.models.RiesgoDTO;
 import com.sofka.gestionRiesgo.repository.ProyectoRepository;
 import com.sofka.gestionRiesgo.repository.RiesgoRepository;
+import com.sofka.gestionRiesgo.service.SequenceGeneratorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
@@ -27,14 +29,18 @@ class CrearRiesgoUseCaseTest {
     @Mock
     CrearRiesgoUseCase crearRiesgoUseCase;
 
+    @Mock
+    SequenceGeneratorService service;
+
     MapperRiesgo mapperRiesgo = new MapperRiesgo();
 
     @BeforeEach
     public void setUp() {
+        service = Mockito.mock(SequenceGeneratorService.class);
         proyectoRepository = mock(ProyectoRepository.class);
         riesgoRepository = mock(RiesgoRepository.class);
 
-        crearRiesgoUseCase = new CrearRiesgoUseCase(proyectoRepository, riesgoRepository, mapperRiesgo);
+        crearRiesgoUseCase = new CrearRiesgoUseCase(proyectoRepository, riesgoRepository, mapperRiesgo, service);
     }
 
     @Test
@@ -79,6 +85,8 @@ class CrearRiesgoUseCaseTest {
 
         when(proyectoRepository.findById(1)).thenReturn(Mono.just(proyecto));
 
+        when(service.getSequenceNumber("riesgo_sequence")).thenReturn(Mono.just(1));
+
         when(riesgoRepository.save(any(Riesgo.class))).thenReturn(Mono.just(riesgo));
 
         StepVerifier.create(crearRiesgoUseCase.apply(riesgoDTO))
@@ -111,7 +119,8 @@ class CrearRiesgoUseCaseTest {
 
 
 
-        verify(proyectoRepository).findById(1);
+
+        verify(service).getSequenceNumber("riesgo_sequence");
 
 
     }

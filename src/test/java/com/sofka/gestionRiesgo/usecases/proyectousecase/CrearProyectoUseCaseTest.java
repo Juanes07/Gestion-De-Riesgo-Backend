@@ -4,6 +4,7 @@ import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.mappers.MapperProyecto;
 import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import com.sofka.gestionRiesgo.repository.ProyectoRepository;
+import com.sofka.gestionRiesgo.service.SequenceGeneratorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -25,12 +26,15 @@ class CrearProyectoUseCaseTest {
 
     MapperProyecto mapperProyecto = new MapperProyecto();
 
+    @Mock
+    SequenceGeneratorService service;
+
 
     @BeforeEach
     public void setUp() {
-
+        service = Mockito.mock(SequenceGeneratorService.class);
         proyectoRepository = mock(ProyectoRepository.class);
-        crearProyectoUseCase = new CrearProyectoUseCase(proyectoRepository,mapperProyecto);
+        crearProyectoUseCase = new CrearProyectoUseCase(proyectoRepository, mapperProyecto, service);
 
     }
 
@@ -59,7 +63,7 @@ class CrearProyectoUseCaseTest {
         proyectoDto.setLiderProyecto(proyecto.getLiderProyecto());
         proyectoDto.setEstado(proyecto.getEstado());
 
-
+        when(service.getSequenceNumber("proyecto_sequence")).thenReturn(Mono.just(1));
         when(proyectoRepository.save(Mockito.any(Proyecto.class))).thenReturn(Mono.just(proyecto));
 
         StepVerifier.create(crearProyectoUseCase.apply(proyectoDto))
@@ -78,7 +82,8 @@ class CrearProyectoUseCaseTest {
                     return true;
                 }).expectComplete();
 
-        verify(proyectoRepository).save(Mockito.any(Proyecto.class));
+
+        verify(service).getSequenceNumber("proyecto_sequence");
     }
 }
 
