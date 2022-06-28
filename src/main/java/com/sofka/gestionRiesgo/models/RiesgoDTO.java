@@ -16,6 +16,8 @@ public class RiesgoDTO {
 
     private Integer idProyecto;
 
+    private String creadorRiesgo;
+
     @NotBlank(message = "Debe existir el nombreProyecto para este objeto")
     private String nombreProyecto;
 
@@ -77,6 +79,7 @@ public class RiesgoDTO {
         return "RiesgoDTO{" +
                 "id=" + id +
                 ", idProyecto=" + idProyecto +
+                ", creadorRiesgo='" + creadorRiesgo + '\'' +
                 ", nombreProyecto='" + nombreProyecto + '\'' +
                 ", nombreRiesgo='" + nombreRiesgo + '\'' +
                 ", fechaDeteccion=" + fechaDeteccion +

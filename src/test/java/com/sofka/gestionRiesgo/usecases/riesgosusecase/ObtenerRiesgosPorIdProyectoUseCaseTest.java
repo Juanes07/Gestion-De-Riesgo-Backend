@@ -1,21 +1,17 @@
 package com.sofka.gestionRiesgo.usecases.riesgosusecase;
 
-import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.collections.Riesgo;
 import com.sofka.gestionRiesgo.mappers.MapperRiesgo;
-import com.sofka.gestionRiesgo.repository.ProyectoRepository;
 import com.sofka.gestionRiesgo.repository.RiesgoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class ObtenerRiesgosPorIdProyectoUseCaseTest {
@@ -46,7 +42,7 @@ class ObtenerRiesgosPorIdProyectoUseCaseTest {
         riesgo.setEtiquetas(List.of("etiqueta1", "etiqueta1"));
         riesgo.setDescripcionRiesgo("descripcion----");
         riesgo.setEstadoRiesgo("estado riesgo");
-        riesgo.setAudencia("audiencia");
+        riesgo.setAudiencia("audiencia");
         riesgo.setCategoria("categoria");
         riesgo.setTipoRiesgo("tipo riesgo");
         riesgo.setDetalleTipoRiesgo("detalle riesgo ");
@@ -69,7 +65,7 @@ class ObtenerRiesgosPorIdProyectoUseCaseTest {
         riesgo.setEtiquetas(List.of("etiqueta1", "etiqueta1"));
         riesgo.setDescripcionRiesgo("descripcion----");
         riesgo.setEstadoRiesgo("estado riesgo");
-        riesgo.setAudencia("audiencia");
+        riesgo.setAudiencia("audiencia");
         riesgo.setCategoria("categoria");
         riesgo.setTipoRiesgo("tipo riesgo");
         riesgo.setDetalleTipoRiesgo("detalle riesgo ");
