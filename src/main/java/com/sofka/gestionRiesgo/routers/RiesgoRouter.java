@@ -5,10 +5,7 @@ import com.sofka.gestionRiesgo.models.RiesgoDTO;
 import com.sofka.gestionRiesgo.usecases.proyectousecase.ActualizarProyectoPorIdUseCase;
 import com.sofka.gestionRiesgo.usecases.proyectousecase.CrearProyectoUseCase;
 import com.sofka.gestionRiesgo.usecases.proyectousecase.ObtenerProyectoPorIdUseCase;
-import com.sofka.gestionRiesgo.usecases.riesgosusecase.ActualizarRiesgoPorIdUseCase;
-import com.sofka.gestionRiesgo.usecases.riesgosusecase.CrearRiesgoUseCase;
-import com.sofka.gestionRiesgo.usecases.riesgosusecase.ObtenerRiesgoPorIdUseCase;
-import com.sofka.gestionRiesgo.usecases.riesgosusecase.ObtenerRiesgosPorIdProyectoUseCase;
+import com.sofka.gestionRiesgo.usecases.riesgosusecase.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -143,6 +140,25 @@ public class RiesgoRouter {
     public RouterFunction<ServerResponse> obtenerRiesgoPorIdProyecto(ObtenerRiesgosPorIdProyectoUseCase useCase) {
         return route(
                 GET("/obtenerRiesgoPorProyecto/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(
+                                useCase.apply(request.pathVariable("id")),
+                                RiesgoDTO.class
+                        ))
+        );
+
+    }
+
+    @Bean
+    @RouterOperation(operation = @Operation(operationId = "Eliminar riesgo por id", summary = "Eliminar riesgo por id", tags = {"Riesgo"},
+            parameters = {@Parameter(in = ParameterIn.PATH, name = "id", description = "Integer")},
+            responses = {@ApiResponse(responseCode = "200", description = "successful operation"),
+                    @ApiResponse(responseCode = "400", description = "Invalid risk ID supplied"),
+                    @ApiResponse(responseCode = "404", description = "risk not found")}))
+    public RouterFunction<ServerResponse> eliminarRiesgoPorId(EliminarRiesgoPorIdUseCase useCase) {
+        return route(
+                PUT("/eliminarRiesgoPorId/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(
