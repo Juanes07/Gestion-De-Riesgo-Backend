@@ -36,6 +36,7 @@ public class CrearRiesgoUseCase implements GuardarRiesgo {
                     return proyectoRepository.findById(riesgoDTO.getIdProyecto())
                             .flatMap(proyecto -> {
                                 riesgoDTO.setNombreProyecto(proyecto.getNombre());
+                                proyecto.setEstado("activo");
                                 return riesgoRepository
                                         .save(mapperRiesgo.riesgoDtoARiesgo(null).apply(riesgoDTO))
                                         .thenReturn(riesgoDTO);

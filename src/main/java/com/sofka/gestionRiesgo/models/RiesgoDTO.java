@@ -66,7 +66,7 @@ public class RiesgoDTO {
     @NotBlank(message = "Debe existir la descripcionPlanDeContigencia para este objeto")
     private String descripcionPlanDeContingencia;
 
-    private List<String> emailsPlanDeContigencia;
+    private List<String> emailsPlanDeContingencia;
 
     private Integer valorCriticidad;
 
@@ -96,7 +96,7 @@ public class RiesgoDTO {
                 ", descripcionPlanDeMitigacion='" + descripcionPlanDeMitigacion + '\'' +
                 ", emailsPlanDeMitigacion=" + emailsPlanDeMitigacion +
                 ", descripcionPlanDeContigencia='" + descripcionPlanDeContingencia + '\'' +
-                ", emailsPlanDeContigencia=" + emailsPlanDeContigencia +
+                ", emailsPlanDeContigencia=" + emailsPlanDeContingencia +
                 ", valorCriticidad=" + valorCriticidad +
                 ", estadoDeVidaDelRiesgo='" + estadoDeVidaDelRiesgo + '\'' +
                 '}';
