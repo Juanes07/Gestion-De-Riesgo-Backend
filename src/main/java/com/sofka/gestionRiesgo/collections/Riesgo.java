@@ -33,8 +33,8 @@ public class Riesgo {
     private Integer impactoDeOcurrenciaDelRiesgo;
     private String descripcionPlanDeMitigacion;
     private List<String> emailsPlanDeMitigacion;
-    private String descripcionPlanDeContigencia;
-    private List<String> emailsPlanDeContigencia;
+    private String descripcionPlanDeContingencia;
+    private List<String> emailsPlanDeContingencia;
     private Integer valorCriticidad;
     private String estadoDeVidaDelRiesgo;
 
@@ -60,8 +60,8 @@ public class Riesgo {
                   Integer impactoDeOcurrenciaDelRiesgo,
                   String descripcionPlanDeMitigacion,
                   List<String> emailsPlanDeMitigacion,
-                  String descripcionPlanDeContigencia,
-                  List<String> emailsPlanDeContigencia,
+                  String descripcionPlanDeContingencia,
+                  List<String> emailsPlanDeContingencia,
                   Integer valorCriticidad,
                   String estadoDeVidaDelRiesgo) {
         this.id = id;
@@ -82,8 +82,8 @@ public class Riesgo {
         this.impactoDeOcurrenciaDelRiesgo = impactoDeOcurrenciaDelRiesgo;
         this.descripcionPlanDeMitigacion = descripcionPlanDeMitigacion;
         this.emailsPlanDeMitigacion = emailsPlanDeMitigacion;
-        this.descripcionPlanDeContigencia = descripcionPlanDeContigencia;
-        this.emailsPlanDeContigencia = emailsPlanDeContigencia;
+        this.descripcionPlanDeContingencia = descripcionPlanDeContingencia;
+        this.emailsPlanDeContingencia = emailsPlanDeContingencia;
         this.valorCriticidad = valorCriticidad;
         this.estadoDeVidaDelRiesgo = estadoDeVidaDelRiesgo;
     }
@@ -109,8 +109,8 @@ public class Riesgo {
                 ", impactoDeOcurrenciaDelRiesgo=" + impactoDeOcurrenciaDelRiesgo +
                 ", descripcionPlanDeMitigacion='" + descripcionPlanDeMitigacion + '\'' +
                 ", emailsPlanDeMitigacion=" + emailsPlanDeMitigacion +
-                ", descripcionPlanDeContigencia='" + descripcionPlanDeContigencia + '\'' +
-                ", emailsPlanDeContigencia=" + emailsPlanDeContigencia +
+                ", descripcionPlanDeContigencia='" + descripcionPlanDeContingencia + '\'' +
+                ", emailsPlanDeContigencia=" + emailsPlanDeContingencia +
                 ", valorCriticidad=" + valorCriticidad +
                 ", estadoDeVidaDelRiesgo='" + estadoDeVidaDelRiesgo + '\'' +
                 '}';

@@ -30,8 +30,8 @@ public class MapperRiesgo {
             riesgo.setImpactoDeOcurrenciaDelRiesgo(riesgoDTO.getImpactoDeOcurrenciaDelRiesgo());
             riesgo.setDescripcionPlanDeMitigacion(riesgoDTO.getDescripcionPlanDeMitigacion());
             riesgo.setEmailsPlanDeMitigacion(riesgoDTO.getEmailsPlanDeMitigacion());
-            riesgo.setDescripcionPlanDeContigencia(riesgoDTO.getDescripcionPlanDeContingencia());
-            riesgo.setEmailsPlanDeContigencia(riesgoDTO.getEmailsPlanDeContigencia());
+            riesgo.setDescripcionPlanDeContingencia(riesgoDTO.getDescripcionPlanDeContingencia());
+            riesgo.setEmailsPlanDeContingencia(riesgoDTO.getEmailsPlanDeContingencia());
             riesgo.setValorCriticidad(riesgoDTO.getValorCriticidad());
             riesgo.setEstadoDeVidaDelRiesgo(riesgoDTO.getEstadoDeVidaDelRiesgo());
             return riesgo;
@@ -58,8 +58,8 @@ public class MapperRiesgo {
                 riesgo.getImpactoDeOcurrenciaDelRiesgo(),
                 riesgo.getDescripcionPlanDeMitigacion(),
                 riesgo.getEmailsPlanDeMitigacion(),
-                riesgo.getDescripcionPlanDeContigencia(),
-                riesgo.getEmailsPlanDeContigencia(),
+                riesgo.getDescripcionPlanDeContingencia(),
+                riesgo.getEmailsPlanDeContingencia(),
                 riesgo.getValorCriticidad(),
                 riesgo.getEstadoDeVidaDelRiesgo()
         );
