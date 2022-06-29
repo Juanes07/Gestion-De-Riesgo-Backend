@@ -1,14 +1,9 @@
 package com.sofka.gestionRiesgo.usecases.riesgosusecase;
 
-import com.sofka.gestionRiesgo.collections.Proyecto;
 import com.sofka.gestionRiesgo.collections.Riesgo;
-import com.sofka.gestionRiesgo.mappers.MapperProyecto;
 import com.sofka.gestionRiesgo.mappers.MapperRiesgo;
 import com.sofka.gestionRiesgo.models.RiesgoDTO;
-import com.sofka.gestionRiesgo.repository.ProyectoRepository;
 import com.sofka.gestionRiesgo.repository.RiesgoRepository;
-import com.sofka.gestionRiesgo.usecases.proyectousecase.EliminarProyectoPorIdUserCase;
-import net.minidev.json.writer.MapperRemapped;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -17,7 +12,6 @@ import reactor.test.StepVerifier;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
@@ -59,8 +53,8 @@ class EliminarRiesgoPorIdUseCaseTest {
         riesgo.setImpactoDeOcurrenciaDelRiesgo(1);
         riesgo.setDescripcionPlanDeMitigacion("descripcion plan mitigacion");
         riesgo.setEmailsPlanDeMitigacion(List.of("correo@gmail.com", "correo2@gmail.com"));
-        riesgo.setDescripcionPlanDeContigencia("descripcion plan contigencia");
-        riesgo.setEmailsPlanDeContigencia(List.of("correo@gmail.com", "correo2@gmail.com"));
+        riesgo.setDescripcionPlanDeContingencia("descripcion plan contigencia");
+        riesgo.setEmailsPlanDeContingencia(List.of("correo@gmail.com", "correo2@gmail.com"));
         riesgo.setValorCriticidad(2);
         riesgo.setEstadoDeVidaDelRiesgo("mitigado");
 

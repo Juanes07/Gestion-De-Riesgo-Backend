@@ -51,8 +51,8 @@ class ActualizarRiesgoPorIdUseCaseTest {
         riesgo.setImpactoDeOcurrenciaDelRiesgo(1);
         riesgo.setDescripcionPlanDeMitigacion("descripcion plan mitigacion");
         riesgo.setEmailsPlanDeMitigacion(List.of("correo@gmail.com", "correo2@gmail.com"));
-        riesgo.setDescripcionPlanDeContigencia("descripcion plan contigencia");
-        riesgo.setEmailsPlanDeContigencia(List.of("correo@gmail.com", "correo2@gmail.com"));
+        riesgo.setDescripcionPlanDeContingencia("descripcion plan contigencia");
+        riesgo.setEmailsPlanDeContingencia(List.of("correo@gmail.com", "correo2@gmail.com"));
         riesgo.setValorCriticidad(2);
         riesgo.setEstadoDeVidaDelRiesgo("mitigado");
 

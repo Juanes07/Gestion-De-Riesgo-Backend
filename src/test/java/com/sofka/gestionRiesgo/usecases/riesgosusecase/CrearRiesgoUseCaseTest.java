@@ -75,8 +75,8 @@ class CrearRiesgoUseCaseTest {
         riesgo.setImpactoDeOcurrenciaDelRiesgo(1);
         riesgo.setDescripcionPlanDeMitigacion("descripcion plan mitigacion");
         riesgo.setEmailsPlanDeMitigacion(List.of("correo@gmail.com", "correo2@gmail.com"));
-        riesgo.setDescripcionPlanDeContigencia("descripcion plan contigencia");
-        riesgo.setEmailsPlanDeContigencia(List.of("correo@gmail.com", "correo2@gmail.com"));
+        riesgo.setDescripcionPlanDeContingencia("descripcion plan contigencia");
+        riesgo.setEmailsPlanDeContingencia(List.of("correo@gmail.com", "correo2@gmail.com"));
         riesgo.setValorCriticidad(2);
         riesgo.setEstadoDeVidaDelRiesgo("mitigado");
 
@@ -109,8 +109,8 @@ class CrearRiesgoUseCaseTest {
                     assert riesgoDTO1.getImpactoDeOcurrenciaDelRiesgo().equals(riesgo.getImpactoDeOcurrenciaDelRiesgo());
                     assert riesgoDTO1.getDescripcionPlanDeMitigacion().equals(riesgo.getDescripcionPlanDeMitigacion());
                     assert riesgoDTO1.getEmailsPlanDeMitigacion().equals(riesgo.getEmailsPlanDeMitigacion());
-                    assert riesgoDTO1.getDescripcionPlanDeContingencia().equals(riesgo.getDescripcionPlanDeContigencia());
-                    assert riesgoDTO1.getEmailsPlanDeContigencia().equals(riesgo.getEmailsPlanDeContigencia());
+                    assert riesgoDTO1.getDescripcionPlanDeContingencia().equals(riesgo.getDescripcionPlanDeContingencia());
+                    assert riesgoDTO1.getEmailsPlanDeContingencia().equals(riesgo.getEmailsPlanDeContingencia());
                     assert riesgoDTO1.getValorCriticidad().equals(riesgo.getValorCriticidad());
                     assert riesgoDTO1.getEstadoDeVidaDelRiesgo().equals(riesgo.getEstadoDeVidaDelRiesgo());
 
