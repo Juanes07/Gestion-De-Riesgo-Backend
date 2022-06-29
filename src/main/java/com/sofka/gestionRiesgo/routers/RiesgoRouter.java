@@ -158,7 +158,7 @@ public class RiesgoRouter {
                     @ApiResponse(responseCode = "404", description = "risk not found")}))
     public RouterFunction<ServerResponse> eliminarRiesgoPorId(EliminarRiesgoPorIdUseCase useCase) {
         return route(
-                DELETE("/eliminarRiesgoPorId/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                PUT("/eliminarRiesgoPorId/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(
