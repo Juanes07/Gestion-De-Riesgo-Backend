@@ -42,7 +42,7 @@ public class CrearRiesgoUseCase implements GuardarRiesgo {
                                             + proyecto.getEstado() + " y no se puede crear un riesgo"));
                                 }
                                 riesgoDTO.setNombreProyecto(proyecto.getNombre());
-                                proyecto.setEstado("activo");
+                                proyecto.setEstado("Activo");
                                 return riesgoRepository
                                         .save(mapperRiesgo.riesgoDtoARiesgo(null).apply(riesgoDTO))
                                         .thenReturn(riesgoDTO);
