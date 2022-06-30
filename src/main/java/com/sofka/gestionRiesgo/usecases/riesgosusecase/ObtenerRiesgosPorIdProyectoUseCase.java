@@ -9,6 +9,11 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 @Validated
 public class ObtenerRiesgosPorIdProyectoUseCase implements Function<String, Flux<RiesgoDTO>> {

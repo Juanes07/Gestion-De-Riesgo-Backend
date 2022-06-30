@@ -6,8 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
-
+/**
+ * @coleccion riesgoDTO
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
@@ -60,12 +66,13 @@ public class RiesgoDTO {
     @NotBlank(message = "Debe existir el descripcionPlanDeMitigacion para este objeto")
     private String descripcionPlanDeMitigacion;
 
+    @Size(min = 1,  message = "Debe existir al menos una persona responsable para el plan de mitigacion")
     private List<String> emailsPlanDeMitigacion;
 
     @Length(min = 5, max = 1000, message = "la longitud del descripcionPlanContigencia debe estar entre 5 y 1000 caracteres")
     @NotBlank(message = "Debe existir la descripcionPlanDeContigencia para este objeto")
     private String descripcionPlanDeContingencia;
-
+    @Size(min = 1,  message = "Debe existir al menos una persona responsable para el plan de contigencia")
     private List<String> emailsPlanDeContingencia;
 
     private Integer valorCriticidad;

@@ -11,6 +11,11 @@ import reactor.core.publisher.Mono;
 
 import static com.sofka.gestionRiesgo.collections.Proyecto.SEQUENCE_PROYECTO;
 import static com.sofka.gestionRiesgo.collections.Usuario.SEQUENCE_USUARIO;
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 
 @Service
 @Validated

@@ -9,6 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * @coleccion proyecto
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Data
 @Document(collection = "proyecto")
 public class Proyecto {

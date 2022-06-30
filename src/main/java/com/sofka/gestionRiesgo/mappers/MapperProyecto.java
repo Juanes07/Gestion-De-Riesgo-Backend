@@ -5,7 +5,12 @@ import com.sofka.gestionRiesgo.models.ProyectoDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
-
+/**
+ * @coleccion mapperProyecto
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Component
 public class MapperProyecto {
 

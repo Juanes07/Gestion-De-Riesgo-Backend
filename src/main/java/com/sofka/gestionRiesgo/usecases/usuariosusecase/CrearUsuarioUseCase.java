@@ -10,7 +10,11 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 import static com.sofka.gestionRiesgo.collections.Usuario.SEQUENCE_USUARIO;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 @Validated
 public class CrearUsuarioUseCase implements GuardarUsuario {

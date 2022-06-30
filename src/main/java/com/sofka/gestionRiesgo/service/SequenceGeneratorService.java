@@ -13,7 +13,11 @@ import reactor.core.publisher.Mono;
 import java.util.Objects;
 
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 public class SequenceGeneratorService {
 
