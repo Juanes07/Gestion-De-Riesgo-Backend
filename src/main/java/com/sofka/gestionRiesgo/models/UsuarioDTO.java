@@ -6,7 +6,12 @@ import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
-
+/**
+ * @coleccion usuarioDTO
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor

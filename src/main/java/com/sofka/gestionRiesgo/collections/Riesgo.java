@@ -1,10 +1,18 @@
 package com.sofka.gestionRiesgo.collections;
+/**
+ *
+ */
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+/**
+ * @coleccion riesgo
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 
 import java.util.List;
 

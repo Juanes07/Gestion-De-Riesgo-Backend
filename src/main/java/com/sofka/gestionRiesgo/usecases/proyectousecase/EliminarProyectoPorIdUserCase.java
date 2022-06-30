@@ -10,7 +10,11 @@ import reactor.core.publisher.Mono;
 
 import java.util.Objects;
 import java.util.function.Function;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 @Validated
 public class EliminarProyectoPorIdUserCase implements Function<String, Mono<Void>> {

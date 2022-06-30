@@ -8,7 +8,11 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 import java.util.function.Function;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 @Validated
 public class ObtenerProyectoPorIdUseCase implements Function<String, Mono<ProyectoDTO>> {

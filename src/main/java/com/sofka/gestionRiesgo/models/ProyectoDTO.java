@@ -6,8 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
+/**
+ * @coleccion proyectoDTO
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
