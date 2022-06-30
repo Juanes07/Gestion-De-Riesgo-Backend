@@ -7,6 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+/**
+ * @coleccion usuario
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Data
 @Document(collection = "usuario")
 public class Usuario {

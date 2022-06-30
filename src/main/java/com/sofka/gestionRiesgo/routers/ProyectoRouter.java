@@ -22,7 +22,11 @@ import java.util.function.Function;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @RestController
 @Configuration
 public class ProyectoRouter {

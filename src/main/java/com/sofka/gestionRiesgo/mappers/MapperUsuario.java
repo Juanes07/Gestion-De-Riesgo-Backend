@@ -7,7 +7,12 @@ import com.sofka.gestionRiesgo.models.UsuarioDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
-
+/**
+ * @coleccion mapperRiesgo
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Component
 public class MapperUsuario {
 

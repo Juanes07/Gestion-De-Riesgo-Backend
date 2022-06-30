@@ -11,7 +11,11 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 import static com.sofka.gestionRiesgo.collections.Riesgo.SEQUENCE_RIESGO;
-
+/**
+ * @author camila morales
+ * @author Duvan Botero
+ * @version 1.0
+ */
 @Service
 @Validated
 public class CrearRiesgoUseCase implements GuardarRiesgo {
