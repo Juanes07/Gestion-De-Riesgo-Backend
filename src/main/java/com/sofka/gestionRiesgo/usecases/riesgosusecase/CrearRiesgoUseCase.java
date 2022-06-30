@@ -31,10 +31,16 @@ public class CrearRiesgoUseCase implements GuardarRiesgo {
 
     @Override
     public Mono<RiesgoDTO> apply(RiesgoDTO riesgoDTO) {
-        var riesgoDto = service.getSequenceNumber(SEQUENCE_RIESGO).flatMap(id -> {
+        return service.getSequenceNumber(SEQUENCE_RIESGO).flatMap(id -> {
                     riesgoDTO.setId(id.intValue());
                     return proyectoRepository.findById(riesgoDTO.getIdProyecto())
                             .flatMap(proyecto -> {
+                                if (proyecto.getEstado().equalsIgnoreCase("Cancelado")
+                                        || proyecto.getEstado().equalsIgnoreCase("Culminado")
+                                        || proyecto.getEstado().equalsIgnoreCase("Pausado")) {
+                                    return Mono.error(new Exception("El proyecto se encuentra en estado "
+                                            + proyecto.getEstado() + " y no se puede crear un riesgo"));
+                                }
                                 riesgoDTO.setNombreProyecto(proyecto.getNombre());
                                 proyecto.setEstado("activo");
                                 return riesgoRepository
@@ -49,6 +55,5 @@ public class CrearRiesgoUseCase implements GuardarRiesgo {
         );
 
 
-        return riesgoDto;
     }
 }
